@@ -1,0 +1,11 @@
+services:
+  app:
+    build:
+      context: .
+      args:
+         PROJECT_NAME: ${PROJECT_NAME}
+    container_name: "${PROJECT_NAME}-venv" 
+    command: bash
+    tty: true
+    stdin_open: true
+
