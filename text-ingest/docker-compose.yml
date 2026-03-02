@@ -7,7 +7,7 @@ services:
       args:
          PROJECT_NAME: ${PROJECT_NAME}
          USER_HOME: ${USER_HOME}
-    command: ${USER_HOME}/file_watcher.py
+#    command: ${USER_HOME}/file_watcher.py
     volumes:
       - ./data:${USER_HOME}/data:rw
     container_name: "${PROJECT_NAME}" 

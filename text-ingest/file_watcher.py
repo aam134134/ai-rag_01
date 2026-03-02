@@ -4,11 +4,11 @@ import shutil
 from pathlib import Path
 from unstructured.chunking.basic import chunk_elements
 from unstructured.partition.html import partition_html
-from unstructured.partition.txt import partition_text
+from unstructured.partition.text import partition_text
 
 WATCH_DIR = Path(os.getenv("WATCH_DIR", "/home/appuser/data/inbox"))
 ARCHIVE_DIR = Path(os.getenv("ARCHIVE_DIR", "/home/appuser/data/archive"))
-POLL_INTERVAL = int(os.getenv("POLL_INTERVAL", "3330"))
+POLL_INTERVAL = int(os.getenv("POLL_INTERVAL", "30"))
 
 WATCH_DIR.mkdir(parents=True, exist_ok=True)
 ARCHIVE_DIR.mkdir(parents=True, exist_ok=True)
@@ -19,7 +19,7 @@ while True:
     for file in WATCH_DIR.iterdir():
 
         # Read file (text)
-        elements = partition_text(file=file)
+        elements = partition_text(filename=str(file))
         print(elements)
 
         # Move to archive

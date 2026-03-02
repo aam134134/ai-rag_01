@@ -15,10 +15,9 @@ WORKDIR ${PROJECT_DIR}
 
 RUN uv init
 RUN uv venv
-RUN echo "source \"${PROJECT_DIR}/.venv/bin/activate\"" >> ~/.bashrc
-
 RUN uv add unstructured==0.21.5
+RUN echo "source \"${PROJECT_DIR}/.venv/bin/activate\"" >> ~/.bashrc
 
 COPY file_watcher.py ${PROJECT_DIR}/file_watcher.py
 
-ENTRYPOINT ["python3", "-u", "file_watcher.py"]
+ENTRYPOINT ["./.venv/bin/python", "-u","file_watcher.py"]
