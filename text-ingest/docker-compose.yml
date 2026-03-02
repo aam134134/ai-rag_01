@@ -1,0 +1,15 @@
+services:
+  app:
+    image: ${PROJECT_NAME}:${PROJECT_VERSION}
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+         PROJECT_NAME: ${PROJECT_NAME}
+    volumes:
+      - ./file_drop:/home/appuser/inbox:rw
+    container_name: "${PROJECT_NAME}" 
+    command: bash
+    tty: true
+    stdin_open: true
+
