@@ -1,0 +1,5 @@
+--only-binary llvmlite
+--prefer-binary
+
+setuptools<82
+unstructured==0.21.5

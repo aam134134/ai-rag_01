@@ -6,9 +6,9 @@ from unstructured.chunking.basic import chunk_elements
 from unstructured.partition.html import partition_html
 from unstructured.partition.text import partition_text
 
-WATCH_DIR = Path(os.getenv("WATCH_DIR", "/home/appuser/data/inbox"))
-ARCHIVE_DIR = Path(os.getenv("ARCHIVE_DIR", "/home/appuser/data/archive"))
-POLL_INTERVAL = int(os.getenv("POLL_INTERVAL", "30"))
+WATCH_DIR = Path(os.getenv("WATCH_DIR", "data/inbox"))
+ARCHIVE_DIR = Path(os.getenv("ARCHIVE_DIR", "data/archive"))
+POLL_INTERVAL = int(os.getenv("POLL_INTERVAL", "5"))
 
 WATCH_DIR.mkdir(parents=True, exist_ok=True)
 ARCHIVE_DIR.mkdir(parents=True, exist_ok=True)
