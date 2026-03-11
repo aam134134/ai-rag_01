@@ -9,16 +9,17 @@ from unstructured.chunking.title import chunk_by_title
 from unstructured.partition.html import partition_html
 from unstructured.partition.text import partition_text
 
-WATCH_DIR = Path(os.getenv("WATCH_DIR", "data/inbox"))
-ARCHIVE_DIR = Path(os.getenv("ARCHIVE_DIR", "data/archive"))
+PROJECT_DATA_DIR = f"{Path.home()}/.local/share/ai-rag01"
+WATCH_DIR = Path(os.getenv("WATCH_DIR", f"{PROJECT_DATA_DIR}/ingest/inbox"))
+ARCHIVE_DIR = Path(os.getenv("ARCHIVE_DIR", f"{PROJECT_DATA_DIR}/ingest/archive"))
 POLL_INTERVAL = int(os.getenv("POLL_INTERVAL", "5"))
-CHUNKS_DIR = Path(os.getenv("CHUNKS_DIR", "data/chunks"))
+CHUNKS_DIR = Path(os.getenv("CHUNKS_DIR", f"{PROJECT_DATA_DIR}/ingest/chunks"))
 
 WATCH_DIR.mkdir(parents=True, exist_ok=True)
 ARCHIVE_DIR.mkdir(parents=True, exist_ok=True)
 CHUNKS_DIR.mkdir(parents=True, exist_ok=True)
 
-print(f"Watching {WATCH_DIR} -> Archiving to {ARCHIVE_DIR} (every {POLL_INTERVAL}s)")
+print(f"Watching {WATCH_DIR} -> Archiving to {ARCHIVE_DIR} -> Chunking to {CHUNKS_DIR} (every {POLL_INTERVAL}s)")
 
 while True:
     for file in WATCH_DIR.iterdir():
