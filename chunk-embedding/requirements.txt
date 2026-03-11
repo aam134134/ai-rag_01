@@ -1,0 +1,4 @@
+# Embedding models built on Hugging Face Transformers
+sentence-transformers==3.0.1
+jsonlines==3.1.0
+numpy==1.26.4
